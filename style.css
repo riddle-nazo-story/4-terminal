@@ -1,0 +1,166 @@
+:root{
+  --bg:#0b0f14;
+  --panel:#0f1825;
+  --nav:#0a111a;
+  --border:#1e2a3a;
+  --accent:#2b6cb0;
+  --danger:#8b1d1d;
+  --text:#e6e8ea;
+  --error:#ff6b6b;
+}
+
+*{box-sizing:border-box}
+
+body{
+  margin:0;
+  font-family:"Segoe UI","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+  background:radial-gradient(circle at top,#102030,var(--bg));
+  color:var(--text);
+}
+
+header{
+  padding:14px 20px;
+  background:linear-gradient(90deg,#0e1a2b,#081018);
+  border-bottom:1px solid var(--border);
+}
+
+header h1{
+  margin:0;
+  font-size:16px;
+  letter-spacing:.08em;
+}
+
+.status{
+  font-size:12px;
+  margin-top:4px;
+  opacity:.8;
+}
+
+main{
+  display:grid;
+  grid-template-columns:220px 1fr;
+  min-height:calc(100vh - 60px);
+}
+
+nav{
+  background:var(--nav);
+  border-right:1px solid var(--border);
+  padding:12px;
+}
+
+nav button{
+  width:100%;
+  padding:10px;
+  margin-bottom:8px;
+  background:#101a28;
+  border:1px solid var(--border);
+  color:var(--text);
+  border-radius:6px;
+}
+
+nav button.active{
+  background:linear-gradient(90deg,#1e3a5f,#16243a);
+  border-color:var(--accent);
+}
+
+nav button.danger{
+  border-color:var(--danger);
+}
+
+section{
+  padding:18px;
+  display:none;
+}
+
+section.active{display:block}
+
+h2{
+  margin-top:0;
+  font-size:16px;
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;
+}
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:13px;
+}
+
+th,td{
+  border:1px solid var(--border);
+  padding:6px 8px;
+}
+
+th{background:#101a28}
+
+.error{
+  color:var(--error);
+  font-family:monospace;
+}
+
+.masked{
+  letter-spacing:.2em;
+}
+
+.panel{
+  max-width:420px;
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:14px;
+}
+
+.big{font-size:22px}
+
+.reset-box{
+  max-width:420px;
+  background:#140b0b;
+  border:1px solid var(--danger);
+  border-radius:8px;
+  padding:14px;
+}
+
+.reset-box img{
+  width:100%;
+  border-radius:6px;
+  margin-bottom:10px;
+}
+
+.reset-box input,
+.reset-box button{
+  width:100%;
+  padding:10px;
+  margin-top:8px;
+}
+
+.reset-box input{
+  background:#080404;
+  border:1px solid var(--danger);
+  color:#fff;
+}
+
+.reset-box button{
+  background:var(--danger);
+  border:none;
+  color:#fff;
+}
+
+.warning{
+  font-size:12px;
+  opacity:.85;
+}
+
+/* スマホ */
+@media(max-width:900px){
+  main{grid-template-columns:1fr}
+  nav{
+    display:flex;
+    overflow-x:auto;
+    gap:8px;
+  }
+  nav button{
+    min-width:160px;
+    margin-bottom:0;
+  }
+}

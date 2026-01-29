@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>The Blue Horizon Tokyo | Internal Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>The Blue Horizon Tokyo / Internal Operation</h1>
+  <div class="status">SYSTEM STATUS : <span class="danger">UNSTABLE</span></div>
+</header>
+
+<main>
+  <nav>
+    <button data-target="guests" class="active">宿泊者</button>
+    <button data-target="staff">出勤履歴</button>
+    <button data-target="sales">販売状況</button>
+    <button data-target="reset" class="danger">SYSTEM RESET</button>
+  </nav>
+
+  <!-- 宿泊者 -->
+  <section id="guests" class="active">
+    <h2>現在の宿泊者リスト</h2>
+    <table>
+      <tr><th>部屋番号</th><th>氏名</th><th>チェックイン</th></tr>
+      <tr>
+        <td>2010</td>
+        <td class="masked">█████</td>
+        <td>202█████</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- スタッフ -->
+  <section id="staff">
+    <h2>スタッフ出勤履歴</h2>
+
+    <table>
+      <tr>
+        <th>日付</th><th>ID</th><th>氏名</th><th>出勤</th><th>退勤</th>
+      </tr>
+
+      <!-- 今日（壊れた現在） -->
+          <tr class="error">
+        <td colspan="5">[ERROR] legacy record checksum failed</td>
+      </tr>
+      
+      <tr>
+        <td class="today-date"></td><td>ST-01</td><td>田中 まみ</td><td>09:01</td><td>—</td>
+      </tr>
+      <tr>
+        <td class="today-date"></td><td>ST-48</td><td>三原 沙織</td><td>08:21</td><td>—</td>
+      </tr>
+      <tr>
+        <td class="today-date"></td><td>ST-45</td><td>橋本 太郎</td><td>08:32</td><td>—</td>
+      </tr>
+      <tr>
+        <td class="today-date"></td><td>ST-39</td><td>近藤 義信</td><td>03:21</td><td>—</td>
+      </tr>
+
+      <tr class="error">
+        <td colspan="5">[ERROR] attendance cache invalidated</td>
+      </tr>
+
+      <!-- 正常だった過去 -->
+      
+      <tr>
+        <td>2026-01-10</td><td>ST-45</td><td>橋本 太郎</td><td>10:05</td><td>19:02</td>
+      </tr>
+      <tr>
+        <td>2026-01-10</td><td>ST-48</td><td>三原 沙織</td><td>09:42</td><td>18:28</td>
+      </tr>
+
+      <tr class="error">
+        <td colspan="5">[ERROR] partial data loss confirmed</td>
+      </tr>
+
+      <!-- 曖昧な過去 -->
+      <tr>
+        <td>2025-11-18</td><td>ST-01</td><td>吉田 まみ</td><td>08:56</td><td>17:47</td>
+      </tr>
+      <tr>
+        <td>2025-07-03</td><td>ST-031</td><td>山本 恒一</td><td>09:04</td><td>18:09</td>
+      </tr>
+
+      <tr class="error">
+        <td colspan="5">[ERROR] legacy record checksum failed</td>
+      </tr>
+
+      <!-- 最古 -->
+      <tr>
+        <td>2024-04-12</td><td>ST-04</td><td>佐々木 恒一</td><td>09:15</td><td>18:00</td>
+      </tr>
+      <tr>
+        <td>2024-04-01</td><td>ST-01</td><td class="masked">██ まみ</td><td>10:00</td><td>19:00</td>
+      </tr>
+
+      <tr class="error">
+        <td colspan="5">[ERROR] legacy record checksum failed</td>
+      </tr>
+    </table>
+  </section>
+
+  <!-- 販売 -->
+  <section id="sales">
+    <h2>販売状況</h2>
+    <div class="panel">
+      <p><strong>商品名：</strong>臓器</p>
+      <p><strong>現在庫数：</strong><span class="big">232</span></p>
+      <p><strong>最終更新：</strong><span class="today-date"></span> 09:12</p>
+      <p class="error">すべて売り出すこと。</p>
+    </div>
+  </section>
+
+  <!-- リセット -->
+  <section id="reset">
+    <h2>システムリセット</h2>
+    <div class="reset-box">
+      <img src="images/system.png" alt="system">
+      <p class="warning">
+        この操作は内部データを完全に初期化します。<br>
+        実行後、復元はできません。
+      </p>
+      <input type="password" id="resetAnswer" placeholder="半角英数字で認証コードを入力">
+      <button id="executeReset">実行する</button>
+    </div>
+  </section>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
